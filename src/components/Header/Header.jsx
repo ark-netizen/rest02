@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import './Header.css'
 
 const navLinks = [
@@ -49,13 +50,16 @@ function Header() {
           </Link>
         </nav>
 
-        <button
-          className="header__menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="메뉴"
-        >
-          {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+        <div className="header__right">
+          <ThemeToggle />
+          <button
+            className="header__menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="메뉴"
+          >
+            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </div>
     </header>
   )

@@ -1,3 +1,51 @@
+/* ===== Color Themes ===== */
+[data-color="purple"] {
+  --color-cyan: #8b5cf6;
+  --color-cyan-light: #a78bfa;
+  --color-cyan-dim: rgba(139, 92, 246, 0.15);
+  --shadow-cyan: 0 4px 24px rgba(139, 92, 246, 0.35);
+  --border-color: rgba(139, 92, 246, 0.18);
+  --border-color-hover: rgba(167, 139, 250, 0.45);
+}
+
+[data-color="emerald"] {
+  --color-cyan: #10b981;
+  --color-cyan-light: #34d399;
+  --color-cyan-dim: rgba(16, 185, 129, 0.15);
+  --shadow-cyan: 0 4px 24px rgba(16, 185, 129, 0.35);
+  --border-color: rgba(16, 185, 129, 0.18);
+  --border-color-hover: rgba(52, 211, 153, 0.45);
+}
+
+[data-color="amber"] {
+  --color-cyan: #f59e0b;
+  --color-cyan-light: #fbbf24;
+  --color-cyan-dim: rgba(245, 158, 11, 0.15);
+  --shadow-cyan: 0 4px 24px rgba(245, 158, 11, 0.35);
+  --border-color: rgba(245, 158, 11, 0.18);
+  --border-color-hover: rgba(251, 191, 36, 0.45);
+}
+
+/* ===== Light Mode ===== */
+[data-theme="light"] {
+  --color-dark-blue: #f1f5f9;
+  --color-dark-blue-2: #e9eef5;
+  --color-dark-blue-3: #dde4ef;
+  --bg-surface: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(100, 116, 139, 0.2);
+  --border-color-hover: rgba(100, 116, 139, 0.4);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] body {
+  background-color: #f1f5f9;
+}
+
 /* ===== CSS Variables - Color System ===== */
 :root {
   /* Primary - 깊은 다크 네이비 */

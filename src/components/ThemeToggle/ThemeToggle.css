@@ -1,0 +1,107 @@
+.theme-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 컬러 스와치 */
+.color-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--swatch-color);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.swatch:hover {
+  transform: scale(1.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.swatch--active {
+  border-color: white;
+  transform: scale(1.15);
+  box-shadow: 0 0 8px var(--swatch-color);
+}
+
+/* 구분선 */
+.theme-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--border-color);
+  margin: 0 0.1rem;
+}
+
+/* 다크/라이트 토글 */
+.mode-toggle {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+}
+
+.mode-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px) rotate(20deg);
+  transition: all 0.25s ease;
+}
+
+.mode-icon--visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+/* 라이트 모드 조정 */
+[data-theme="light"] .mode-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .mode-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .swatch:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .swatch--active {
+  border-color: #1e293b;
+}
+
+@media (max-width: 480px) {
+  .color-swatches { gap: 0.3rem; }
+  .swatch { width: 15px; height: 15px; }
+}
