@@ -157,6 +157,39 @@
   box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
 }
 
+/* ===== Light Mode ===== */
+[data-theme="light"] .page-hero__bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.08) 0%, transparent 70%),
+    #f4f7fb;
+}
+[data-theme="light"] .page-hero h1 { color: #0f172a; }
+[data-theme="light"] .page-hero p  { color: #475569; }
+
+[data-theme="light"] .mission-card--blue {
+  background: rgba(37,99,235,0.05);
+  border-color: rgba(37,99,235,0.2);
+}
+[data-theme="light"] .mission-card--green {
+  background: rgba(16,185,129,0.05);
+  border-color: rgba(16,185,129,0.2);
+}
+[data-theme="light"] .mission-card h3 { color: #0f172a; }
+[data-theme="light"] .mission-card p  { color: #334155; }
+
+[data-theme="light"] .card { background: #ffffff; border-color: rgba(71,85,105,0.15); }
+[data-theme="light"] .card:hover { border-color: var(--accent-border); }
+[data-theme="light"] .value-card h3 { color: #0f172a; }
+[data-theme="light"] .value-card p  { color: #475569; }
+
+[data-theme="light"] .timeline-content {
+  background: #ffffff;
+  border-color: rgba(71,85,105,0.15);
+}
+[data-theme="light"] .timeline-content h3 { color: #0f172a; }
+[data-theme="light"] .timeline-content p  { color: #475569; }
+[data-theme="light"] .timeline::before { background: linear-gradient(180deg, var(--color-royal-blue-2), transparent); }
+
 @media (max-width: 1024px) {
   .values-grid { grid-template-columns: 1fr 1fr; }
 }

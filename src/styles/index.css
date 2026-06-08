@@ -1,50 +1,85 @@
 /* ===== Color Themes ===== */
+/* 기본(cyan) accent 변수 - :root에서도 동일하게 선언 */
+:root {
+  --accent-bg:     rgba(6, 182, 212, 0.08);
+  --accent-border: rgba(6, 182, 212, 0.28);
+  --accent-glow:   rgba(6, 182, 212, 0.12);
+  --accent-grid:   rgba(6, 182, 212, 0.05);
+  --accent-strong: rgba(6, 182, 212, 0.45);
+}
+
 [data-color="purple"] {
-  --color-cyan: #8b5cf6;
-  --color-cyan-light: #a78bfa;
-  --color-cyan-dim: rgba(139, 92, 246, 0.15);
-  --shadow-cyan: 0 4px 24px rgba(139, 92, 246, 0.35);
-  --border-color: rgba(139, 92, 246, 0.18);
-  --border-color-hover: rgba(167, 139, 250, 0.45);
+  --color-cyan:        #8b5cf6;
+  --color-cyan-light:  #a78bfa;
+  --color-cyan-dim:    rgba(139, 92, 246, 0.15);
+  --shadow-cyan:       0 4px 24px rgba(139, 92, 246, 0.35);
+  --border-color:      rgba(139, 92, 246, 0.2);
+  --border-color-hover:rgba(167, 139, 250, 0.5);
+  --accent-bg:         rgba(139, 92, 246, 0.08);
+  --accent-border:     rgba(139, 92, 246, 0.28);
+  --accent-glow:       rgba(139, 92, 246, 0.12);
+  --accent-grid:       rgba(139, 92, 246, 0.05);
+  --accent-strong:     rgba(139, 92, 246, 0.45);
 }
 
 [data-color="emerald"] {
-  --color-cyan: #10b981;
-  --color-cyan-light: #34d399;
-  --color-cyan-dim: rgba(16, 185, 129, 0.15);
-  --shadow-cyan: 0 4px 24px rgba(16, 185, 129, 0.35);
-  --border-color: rgba(16, 185, 129, 0.18);
-  --border-color-hover: rgba(52, 211, 153, 0.45);
+  --color-cyan:        #10b981;
+  --color-cyan-light:  #34d399;
+  --color-cyan-dim:    rgba(16, 185, 129, 0.15);
+  --shadow-cyan:       0 4px 24px rgba(16, 185, 129, 0.35);
+  --border-color:      rgba(16, 185, 129, 0.2);
+  --border-color-hover:rgba(52, 211, 153, 0.5);
+  --accent-bg:         rgba(16, 185, 129, 0.08);
+  --accent-border:     rgba(16, 185, 129, 0.28);
+  --accent-glow:       rgba(16, 185, 129, 0.12);
+  --accent-grid:       rgba(16, 185, 129, 0.05);
+  --accent-strong:     rgba(16, 185, 129, 0.45);
 }
 
 [data-color="amber"] {
-  --color-cyan: #f59e0b;
-  --color-cyan-light: #fbbf24;
-  --color-cyan-dim: rgba(245, 158, 11, 0.15);
-  --shadow-cyan: 0 4px 24px rgba(245, 158, 11, 0.35);
-  --border-color: rgba(245, 158, 11, 0.18);
-  --border-color-hover: rgba(251, 191, 36, 0.45);
+  --color-cyan:        #f59e0b;
+  --color-cyan-light:  #fbbf24;
+  --color-cyan-dim:    rgba(245, 158, 11, 0.15);
+  --shadow-cyan:       0 4px 24px rgba(245, 158, 11, 0.35);
+  --border-color:      rgba(245, 158, 11, 0.2);
+  --border-color-hover:rgba(251, 191, 36, 0.5);
+  --accent-bg:         rgba(245, 158, 11, 0.08);
+  --accent-border:     rgba(245, 158, 11, 0.28);
+  --accent-glow:       rgba(245, 158, 11, 0.12);
+  --accent-grid:       rgba(245, 158, 11, 0.05);
+  --accent-strong:     rgba(245, 158, 11, 0.45);
 }
 
 /* ===== Light Mode ===== */
 [data-theme="light"] {
-  --color-dark-blue: #f1f5f9;
-  --color-dark-blue-2: #e9eef5;
-  --color-dark-blue-3: #dde4ef;
-  --bg-surface: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --border-color: rgba(100, 116, 139, 0.2);
-  --border-color-hover: rgba(100, 116, 139, 0.4);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --color-dark-blue:   #f4f7fb;
+  --color-dark-blue-2: #eaeff7;
+  --color-dark-blue-3: #ffffff;
+  --bg-primary:        #f4f7fb;
+  --bg-secondary:      #eaeff7;
+  --bg-card:           #ffffff;
+  --bg-surface:        #ffffff;
+  --text-primary:      #0f172a;
+  --text-secondary:    #1e293b;
+  --text-muted:        #475569;
+  --border-color:      rgba(71, 85, 105, 0.18);
+  --border-color-hover:rgba(71, 85, 105, 0.38);
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.09);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.11);
+  --shadow-blue: 0 4px 24px rgba(37,99,235,0.15);
+  --shadow-green:0 4px 24px rgba(16,185,129,0.15);
+  --shadow-red:  0 4px 24px rgba(239,68,68,0.15);
 }
 
 [data-theme="light"] body {
-  background-color: #f1f5f9;
+  background-color: #f4f7fb;
 }
+
+/* 라이트 모드 링크/텍스트 기본 보정 */
+[data-theme="light"] a { color: var(--color-royal-blue-2); }
+[data-theme="light"] a:hover { color: var(--color-royal-blue); }
+[data-theme="light"] p { color: var(--text-secondary); }
 
 /* ===== CSS Variables - Color System ===== */
 :root {
@@ -201,8 +236,8 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-cyan-light);
-  background: rgba(6, 182, 212, 0.08);
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
@@ -276,7 +311,7 @@ img { max-width: 100%; display: block; }
   border-color: var(--color-cyan-light);
   color: #06090f;
   transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 6px 30px var(--accent-strong);
 }
 
 .btn-green {
@@ -354,7 +389,7 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, var(--color-cyan), var(--color-royal-blue-light));
   border-radius: var(--radius-full);
   margin: 1rem auto;
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 12px var(--accent-strong);
 }
 
 /* ===== Scrollbar ===== */

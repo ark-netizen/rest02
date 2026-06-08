@@ -118,3 +118,17 @@
   .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer__bottom { flex-direction: column; text-align: center; }
 }
+
+/* Light Mode */
+[data-theme="light"] .footer {
+  background: #e2e8f0;
+  border-top-color: rgba(71,85,105,0.2);
+}
+[data-theme="light"] .footer__desc { color: #475569; }
+[data-theme="light"] .footer__links h4,
+[data-theme="light"] .footer__contact h4 { color: #334155; }
+[data-theme="light"] .footer__links a   { color: #475569; }
+[data-theme="light"] .footer__links a:hover { color: var(--color-royal-blue-2); }
+[data-theme="light"] .footer__contact li { color: #475569; }
+[data-theme="light"] .footer__copy { color: #64748b; }
+[data-theme="light"] .footer__logo .logo-text { color: #0f172a; }
