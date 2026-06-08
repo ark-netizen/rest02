@@ -1,0 +1,176 @@
+.services-page { padding-top: 80px; }
+
+.page-hero {
+  position: relative;
+  padding: 6rem 0 5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(30, 58, 138, 0.35) 0%, transparent 70%),
+    var(--color-dark-blue);
+}
+
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .section-label { margin-bottom: 1.25rem; }
+.page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.25rem; }
+.page-hero p { font-size: 1.0625rem; color: var(--text-muted); }
+
+/* Service Detail */
+.service-detail-section { background: var(--bg-primary); }
+.service-detail-section--alt { background: var(--bg-secondary); }
+
+.service-detail-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.service-detail-section--alt .service-detail-inner {
+  direction: rtl;
+}
+
+.service-detail-section--alt .service-detail-text {
+  direction: ltr;
+}
+
+.service-detail-section--alt .service-detail-visual {
+  direction: ltr;
+}
+
+.service-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.875rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.service-badge--blue {
+  color: var(--color-royal-blue-light);
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.service-badge--green {
+  color: var(--color-green-light);
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+.service-badge--red {
+  color: var(--color-red-light);
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.service-detail-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.service-detail-icon--blue { background: rgba(37, 99, 235, 0.1); color: var(--color-royal-blue-light); }
+.service-detail-icon--green { background: rgba(22, 163, 74, 0.1); color: var(--color-green-light); }
+.service-detail-icon--red { background: rgba(220, 38, 38, 0.1); color: var(--color-red-light); }
+
+.service-detail-text h2 { font-size: 2rem; margin-bottom: 1rem; }
+
+.service-detail-desc {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.service-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.service-features li svg { color: var(--color-green-light); flex-shrink: 0; }
+
+/* Visual */
+.service-detail-visual {
+  border-radius: var(--radius-2xl);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 280px;
+  border: 1px solid;
+}
+
+.service-detail-visual--blue {
+  background: rgba(37, 99, 235, 0.07);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.service-detail-visual--green {
+  background: rgba(22, 163, 74, 0.07);
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+.service-detail-visual--red {
+  background: rgba(220, 38, 38, 0.07);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.visual-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.service-detail-visual--blue .visual-icon-large {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--color-royal-blue-light);
+}
+
+.service-detail-visual--green .visual-icon-large {
+  background: rgba(22, 163, 74, 0.15);
+  color: var(--color-green-light);
+}
+
+.service-detail-visual--red .visual-icon-large {
+  background: rgba(220, 38, 38, 0.15);
+  color: var(--color-red-light);
+}
+
+.service-detail-visual h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.service-detail-visual p { color: var(--text-muted); font-size: 0.9375rem; }
+
+@media (max-width: 1024px) {
+  .service-detail-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .service-detail-section--alt .service-detail-inner { direction: ltr; }
+  .service-features { grid-template-columns: 1fr; }
+}
