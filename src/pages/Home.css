@@ -353,9 +353,9 @@
 [data-theme="light"] .hero__desc  { color: #475569; font-size: 1.1rem; }
 
 [data-theme="light"] .hero__badge {
-  color: var(--color-royal-blue-2);
-  background: rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.25);
+  color: var(--accent-text-light);
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
 }
 [data-theme="light"] .badge-dot {
   background: var(--color-green);
@@ -363,12 +363,12 @@
 }
 
 [data-theme="light"] .hero__typewriter { color: #475569; }
-[data-theme="light"] .typewriter-text  { color: var(--color-royal-blue-2); }
-[data-theme="light"] .typewriter-cursor { color: var(--color-royal-blue-2); }
+[data-theme="light"] .typewriter-text  { color: var(--accent-text-light); }
+[data-theme="light"] .typewriter-cursor { color: var(--accent-text-light); }
 [data-theme="light"] .typewriter-label  { color: #64748b; }
 
 [data-theme="light"] .stat-value { color: var(--color-royal-blue-2); }
-[data-theme="light"] .stat-value--cyan { color: var(--color-cyan); text-shadow: none; }
+[data-theme="light"] .stat-value--cyan { color: var(--accent-text-light); text-shadow: none; }
 [data-theme="light"] .stat-label { color: #64748b; }
 
 /* 서비스 섹션 */

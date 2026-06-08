@@ -184,9 +184,37 @@
 [data-theme="light"] .service-detail-desc { color: #475569; }
 [data-theme="light"] .service-features li { color: #334155; }
 
+/* 서비스 배지 — 라이트 배경에서 대비 확보 */
+[data-theme="light"] .service-badge--blue {
+  color: var(--color-royal-blue-2);
+  background: rgba(37,99,235,0.08);
+  border-color: rgba(37,99,235,0.2);
+}
+[data-theme="light"] .service-badge--green {
+  color: #047857;
+  background: rgba(5,150,105,0.08);
+  border-color: rgba(5,150,105,0.2);
+}
+[data-theme="light"] .service-badge--red {
+  color: #b91c1c;
+  background: rgba(185,28,28,0.08);
+  border-color: rgba(185,28,28,0.2);
+}
+
+/* 서비스 상세 아이콘 — 라이트 배경에서 대비 확보 */
+[data-theme="light"] .service-detail-icon--blue  { color: var(--color-royal-blue-2); background: rgba(37,99,235,0.08); }
+[data-theme="light"] .service-detail-icon--green { color: #047857; background: rgba(5,150,105,0.08); }
+[data-theme="light"] .service-detail-icon--red   { color: #b91c1c; background: rgba(185,28,28,0.08); }
+
 [data-theme="light"] .service-detail-visual--blue  { background: rgba(37,99,235,0.05);   border-color: rgba(37,99,235,0.18); }
 [data-theme="light"] .service-detail-visual--green { background: rgba(16,185,129,0.05);  border-color: rgba(16,185,129,0.18); }
 [data-theme="light"] .service-detail-visual--red   { background: rgba(239,68,68,0.05);   border-color: rgba(239,68,68,0.18); }
+
+/* 비주얼 카드 대형 아이콘 — 라이트 배경에서 대비 확보 */
+[data-theme="light"] .service-detail-visual--blue  .visual-icon-large { color: var(--color-royal-blue-2); }
+[data-theme="light"] .service-detail-visual--green .visual-icon-large { color: #047857; }
+[data-theme="light"] .service-detail-visual--red   .visual-icon-large { color: #b91c1c; }
+
 [data-theme="light"] .service-detail-visual h3 { color: #0f172a; }
 [data-theme="light"] .service-detail-visual p  { color: #475569; }
 

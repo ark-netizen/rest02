@@ -132,3 +132,8 @@
 [data-theme="light"] .footer__contact li { color: #475569; }
 [data-theme="light"] .footer__copy { color: #64748b; }
 [data-theme="light"] .footer__logo .logo-text { color: #0f172a; }
+
+/* 라이트 배경에서 대비 확보 */
+[data-theme="light"] .footer__logo .logo-accent { color: var(--color-royal-blue-2); }
+[data-theme="light"] .footer__contact li svg    { color: var(--color-royal-blue-2); }
+[data-theme="light"] .footer__est               { color: var(--color-royal-blue-2); }
