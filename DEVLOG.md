@@ -28,19 +28,19 @@ IT 전문 기업 **ARK IT**의 공식 홈페이지 개발 착수.
 
 ### 디자인 시스템
 
-#### 컬러 팔레트
+#### 컬러 팔레트 (초기)
 
 | 구분 | 색상명 | HEX |
 |------|--------|-----|
-| 메인 배경 | Dark Blue | `#0a1628` |
-| 서브 배경 | Dark Blue 2 | `#0d1f3c` |
-| 카드 배경 | Dark Blue 3 | `#122b52` |
+| 메인 배경 | Dark Blue | `#06090f` |
+| 서브 배경 | Dark Blue 2 | `#090e1a` |
+| 카드 배경 | Dark Blue 3 | `#0e1628` |
 | 주요 UI | Royal Blue | `#2563eb` |
-| 강조 UI | Royal Blue Light | `#3b82f6` |
-| 포인트 (녹) | Dark Green | `#166534` |
-| 포인트 (녹 밝음) | Green Light | `#22c55e` |
-| 포인트 (적) | Dark Red | `#991b1b` |
-| 포인트 (적 밝음) | Red Light | `#ef4444` |
+| 강조 UI | Royal Blue Light | `#60a5fa` |
+| 포인트 (청록) | Cyan | `#06b6d4` |
+| 포인트 (청록 밝음) | Cyan Light | `#22d3ee` |
+| 포인트 (녹) | Green Light | `#4ade80` |
+| 포인트 (적) | Red Light | `#f87171` |
 
 #### 타이포그래피
 - 본문: Noto Sans KR
@@ -96,6 +96,77 @@ IT 전문 기업 **ARK IT**의 공식 홈페이지 개발 착수.
 
 ---
 
+## 2026-06-08 — UI 개선 (파비콘, Hero 인터랙션, 컬러 테마)
+
+### 파비콘 & SEO
+
+- SVG 파비콘 추가: 로열블루 그라디언트 배경 + 흰색 **A** 글자
+- `apple-touch-icon` 설정
+- OG 메타태그 추가 (title, description, url)
+
+---
+
+### Hero 영역 JavaScript 인터랙션
+
+#### Canvas 파티클 애니메이션 (`HeroCanvas.jsx`)
+- 70개 파티클이 배경에서 자유 부유
+- 인접 파티클 간 연결선 렌더링 (거리 130px 이하)
+- 시안/블루/화이트 3색 파티클, 글로우 효과 적용
+- `requestAnimationFrame` 기반 60fps 렌더링
+
+#### 타이핑 효과 (`useTypewriter` 훅)
+- "웹 개발 → 프로그램 개발 → 컴퓨터 판매 → IT 컨설팅" 순환
+- 타이핑(80ms/글자) → 일시정지(1.8s) → 삭제(40ms/글자) 반복
+
+#### 숫자 카운터 애니메이션 (`useCounter` 훅)
+- `IntersectionObserver`로 통계 섹션이 뷰포트에 진입 시 트리거
+- `easeOutExpo` 이징 함수로 자연스러운 카운트업
+
+---
+
+### 색상 개선
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 배경색 | `#0a1628` (파란 기미) | `#06090f` (거의 검정) |
+| 포인트 컬러 | 블루 단조 | 시안(`#06b6d4`) 추가 |
+| 그라디언트 텍스트 | 블루→화이트 | 시안→블루→화이트 |
+| section-label | 블루 계열 | 시안 계열 |
+
+---
+
+## 2026-06-08 — 다크/라이트 모드 & 컬러 테마 시스템
+
+### ThemeContext (`src/context/ThemeContext.jsx`)
+- `isDark` / `colorTheme` 상태 전역 관리
+- `localStorage` 저장으로 새로고침 후에도 유지
+- `document.documentElement`에 `data-theme` / `data-color` 속성 적용
+
+### ThemeToggle 컴포넌트 (`src/components/ThemeToggle/`)
+- 헤더 우측에 고정 노출
+- **다크/라이트 전환 버튼**: Moon ↔ Sun 아이콘 슬라이드 전환
+- **컬러 스와치 4종**: 시안 / 퍼플 / 에메랄드 / 앰버
+
+### CSS 변수 테마 시스템
+
+#### 컬러 테마 (`[data-color]` 속성)
+| 테마 | 포인트 컬러 |
+|------|------------|
+| cyan (기본) | `#06b6d4` / `#22d3ee` |
+| purple | `#8b5cf6` / `#a78bfa` |
+| emerald | `#10b981` / `#34d399` |
+| amber | `#f59e0b` / `#fbbf24` |
+
+- `--accent-bg`, `--accent-border`, `--accent-glow`, `--accent-grid`, `--accent-strong` 변수 시스템
+- CSS 내 하드코딩 `rgba()` 값을 전부 변수로 교체 → 테마 전환 즉시 반영
+
+#### 라이트 모드 (`[data-theme="light"]`)
+- 배경: `#f4f7fb` / `#eaeff7` / `#ffffff`(카드)
+- 텍스트: `#0f172a` / `#1e293b` / `#475569` (고대비)
+- 전 페이지(홈, 회사소개, 서비스, 문의, 푸터) 라이트 전용 스타일 적용
+
+---
+
 ### 커밋 히스토리
 
 | 커밋 | 내용 |
@@ -103,14 +174,20 @@ IT 전문 기업 **ARK IT**의 공식 홈페이지 개발 착수.
 | `6ebfc8c` | Initial commit (README) |
 | `fe268fb` | React 회사 사이트 초기 구성 |
 | `5561b04` | gh-pages 수동 배포 설정 |
+| `1ba9fcf` | 개발일지(DEVLOG.md) 추가 |
+| `5904e49` | SVG 파비콘 및 OG 메타태그 추가 |
+| `333b3b1` | Hero 파티클 애니메이션, 타이핑 효과, 색상 개선 |
+| `8f6fc74` | 다크/라이트 모드 + 4가지 컬러 테마 추가 |
+| `ad73247` | 컬러 테마 전환 버그 수정 + 라이트 모드 가독성 개선 |
 
 ---
 
 ### 향후 개발 예정
 
 - [ ] 실제 회사 정보 (전화번호, 이메일, 주소) 입력
-- [ ] 파비콘 및 OG 메타태그 설정
+- [x] 파비콘 및 OG 메타태그 설정
 - [ ] 포트폴리오 / 프로젝트 갤러리 페이지
 - [ ] 문의 폼 실제 이메일 연동 (EmailJS 등)
-- [ ] 스크롤 애니메이션 (Intersection Observer)
-- [ ] 로딩 스피너 / 페이지 트랜지션
+- [x] 스크롤 애니메이션 (Intersection Observer - 카운터)
+- [ ] 페이지 트랜지션 효과
+- [ ] 모바일 최적화 추가 검토
