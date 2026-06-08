@@ -45,7 +45,7 @@ function Header() {
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="btn btn-primary btn-sm header__cta" onClick={() => setMenuOpen(false)}>
+          <Link to="/contact" className="btn btn-cyan btn-sm header__cta" onClick={() => setMenuOpen(false)}>
             견적 문의
           </Link>
         </nav>
