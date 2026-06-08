@@ -179,6 +179,51 @@ IT 전문 기업 **ARK IT**의 공식 홈페이지 개발 착수.
 | `333b3b1` | Hero 파티클 애니메이션, 타이핑 효과, 색상 개선 |
 | `8f6fc74` | 다크/라이트 모드 + 4가지 컬러 테마 추가 |
 | `ad73247` | 컬러 테마 전환 버그 수정 + 라이트 모드 가독성 개선 |
+| `975cc8c` | 라이트 모드 색상 테마 전환 기능 복구 + 가독성 전면 개선 |
+
+---
+
+## 2026-06-08 — 라이트 모드 색상 테마 전환 복구 & 가독성 전면 개선
+
+### 문제 원인 분석
+
+라이트 모드에서 색상 스와치(퍼플/에메랄드/앰버) 버튼이 반응하지 않던 원인:
+- 라이트 모드 CSS 오버라이드에서 `var(--accent-bg)`, `var(--accent-border)` 등 테마 변수 대신 하드코딩된 `rgba(37, 99, 235, ...)` 파란색 값을 사용
+- 색상 테마가 바뀌어도 CSS 변수는 업데이트되지만 하드코딩 값은 변하지 않으므로 시각적 변화 없음
+
+### 해결 방법
+
+#### `--accent-text-light` 변수 시스템 추가
+
+라이트 배경 위에서 WCAG AA 대비(4.5:1 이상)를 충족하는 어두운 accent 텍스트 색상 변수:
+
+| 테마 | --accent-text-light | 배경 대비비 |
+|------|--------------------|-----------:|
+| cyan (기본) | `#0e7490` | ~5.5:1 |
+| purple | `#5b21b6` | ~7.7:1 |
+| emerald | `#047857` | ~5.8:1 |
+| amber | `#92400e` | ~6.5:1 |
+
+#### 라이트 모드 CSS 변수화
+
+하드코딩 파란색 → 테마 변수로 교체:
+- `section-label`: `background: var(--accent-bg)`, `color: var(--accent-text-light)`
+- `gradient-text`: 끝 색상 `var(--accent-text-light)` 적용
+- `divider`: `var(--accent-text-light)` 끝 컬러
+- `hero__badge`, `typewriter-text`, `typewriter-cursor`, `stat-value--cyan` 동일
+
+### 가독성 수정 항목
+
+| 파일 | 요소 | 수정 전 | 수정 후 |
+|------|------|---------|---------|
+| `index.css` | `.btn-outline` | `#60a5fa` (밝은 파랑) | `#2563eb` (진한 파랑) |
+| `Services.css` | `.service-badge--blue/green/red` | 밝은 색 | 어두운 대응 색 |
+| `Services.css` | `.service-detail-icon--*` | 밝은 색 | 어두운 대응 색 |
+| `About.css` | `.value-icon`, `.timeline-date` | `#60a5fa` | `#2563eb` |
+| `About.css` | `.mission-card h3` | `#60a5fa` | `#2563eb` / `#047857` |
+| `Contact.css` | `.contact-card__icon` | `#60a5fa` | `#2563eb` |
+| `Contact.css` | `.success-icon` | `#4ade80` (밝은 녹) | `#047857` (진한 녹) |
+| `Footer.css` | `.logo-accent`, `.contact li svg`, `.footer__est` | `#60a5fa` | `#2563eb` |
 
 ---
 
