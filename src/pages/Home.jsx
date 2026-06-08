@@ -1,5 +1,8 @@
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiMonitor, FiCode, FiGlobe, FiShield, FiZap, FiUsers } from 'react-icons/fi'
+import HeroCanvas from '../components/HeroCanvas/HeroCanvas'
+import { useCounter } from '../hooks/useCounter'
 import './Home.css'
 
 const services = [
@@ -23,20 +26,73 @@ const services = [
   },
 ]
 
-const stats = [
-  { value: '2026', label: '창업 연도' },
-  { value: '3+', label: '핵심 서비스' },
-  { value: '100%', label: '고객 만족 목표' },
-  { value: '24/7', label: '지원 체계' },
-]
-
 const features = [
   { icon: <FiZap size={20} />, title: '빠른 납기', desc: '신속한 프로젝트 진행으로 업무 공백을 최소화합니다.' },
   { icon: <FiShield size={20} />, title: '품질 보증', desc: '체계적인 품질 관리로 안정적인 결과물을 제공합니다.' },
   { icon: <FiUsers size={20} />, title: '전문 팀', desc: '분야별 전문가가 최적의 솔루션을 설계합니다.' },
 ]
 
+// 타이핑 효과 훅
+function useTypewriter(texts, speed = 80, pause = 1800) {
+  const [display, setDisplay] = useState('')
+  const [textIdx, setTextIdx] = useState(0)
+  const [charIdx, setCharIdx] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const current = texts[textIdx]
+    let timeout
+
+    if (!deleting && charIdx < current.length) {
+      timeout = setTimeout(() => setCharIdx(c => c + 1), speed)
+    } else if (!deleting && charIdx === current.length) {
+      timeout = setTimeout(() => setDeleting(true), pause)
+    } else if (deleting && charIdx > 0) {
+      timeout = setTimeout(() => setCharIdx(c => c - 1), speed / 2)
+    } else if (deleting && charIdx === 0) {
+      setDeleting(false)
+      setTextIdx(i => (i + 1) % texts.length)
+    }
+
+    setDisplay(current.slice(0, charIdx))
+    return () => clearTimeout(timeout)
+  }, [charIdx, deleting, textIdx, texts, speed, pause])
+
+  return display
+}
+
+// 숫자 카운터 StatItem
+function StatItem({ value, suffix, label, started }) {
+  const num = useCounter(value, 1600, started)
+  return (
+    <div className="stat-item">
+      <span className="stat-value">{num}{suffix}</span>
+      <span className="stat-label">{label}</span>
+    </div>
+  )
+}
+
 function Home() {
+  const [statsStarted, setStatsStarted] = useState(false)
+  const statsRef = useRef(null)
+
+  const typedText = useTypewriter([
+    '웹 개발',
+    '프로그램 개발',
+    '컴퓨터 판매',
+    'IT 컨설팅',
+  ])
+
+  // 통계 섹션이 뷰포트에 들어오면 카운터 시작
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStatsStarted(true) },
+      { threshold: 0.5 }
+    )
+    if (statsRef.current) observer.observe(statsRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="home">
       {/* Hero */}
@@ -44,22 +100,33 @@ function Home() {
         <div className="hero__bg">
           <div className="hero__gradient" />
           <div className="hero__grid" />
+          <HeroCanvas />
         </div>
+
         <div className="container hero__content">
           <div className="hero__badge">
             <span className="badge-dot" />
             2026년 6월 개업 · IT 전문기업
           </div>
+
           <h1 className="hero__title">
             당신의 비즈니스를<br />
             <span className="gradient-text">IT로 완성하다</span>
           </h1>
+
+          <p className="hero__typewriter">
+            <span className="typewriter-label">전문 분야 &nbsp;</span>
+            <span className="typewriter-text">{typedText}</span>
+            <span className="typewriter-cursor">|</span>
+          </p>
+
           <p className="hero__desc">
             컴퓨터 판매부터 웹개발, 프로그램 개발까지<br />
             IT 전반의 파트너가 되어 드립니다.
           </p>
+
           <div className="hero__actions">
-            <Link to="/services" className="btn btn-primary btn-lg">
+            <Link to="/services" className="btn btn-cyan btn-lg">
               서비스 보기 <FiArrowRight size={18} />
             </Link>
             <Link to="/contact" className="btn btn-outline btn-lg">
@@ -67,13 +134,14 @@ function Home() {
             </Link>
           </div>
 
-          <div className="hero__stats">
-            {stats.map((stat) => (
-              <div key={stat.label} className="stat-item">
-                <span className="stat-value">{stat.value}</span>
-                <span className="stat-label">{stat.label}</span>
-              </div>
-            ))}
+          <div className="hero__stats" ref={statsRef}>
+            <StatItem value={2026} suffix="" label="창업 연도" started={statsStarted} />
+            <StatItem value={3} suffix="+" label="핵심 서비스" started={statsStarted} />
+            <StatItem value={100} suffix="%" label="고객 만족 목표" started={statsStarted} />
+            <div className="stat-item">
+              <span className="stat-value stat-value--cyan">24/7</span>
+              <span className="stat-label">지원 체계</span>
+            </div>
           </div>
         </div>
       </section>
@@ -156,7 +224,7 @@ function Home() {
           <div className="cta-inner">
             <h2>지금 바로 시작하세요</h2>
             <p>IT 프로젝트에 대한 무료 상담을 제공합니다. 전문가와 함께 최적의 솔루션을 찾아보세요.</p>
-            <Link to="/contact" className="btn btn-primary btn-lg">
+            <Link to="/contact" className="btn btn-cyan btn-lg">
               무료 상담 신청 <FiArrowRight size={18} />
             </Link>
           </div>

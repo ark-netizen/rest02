@@ -1,24 +1,29 @@
 /* ===== CSS Variables - Color System ===== */
 :root {
-  /* Primary - Dark Blue & Royal Blue */
-  --color-dark-blue: #0a1628;
-  --color-dark-blue-2: #0d1f3c;
-  --color-dark-blue-3: #122b52;
+  /* Primary - 깊은 다크 네이비 */
+  --color-dark-blue: #06090f;
+  --color-dark-blue-2: #090e1a;
+  --color-dark-blue-3: #0e1628;
   --color-royal-blue: #1e3a8a;
   --color-royal-blue-2: #2563eb;
-  --color-royal-blue-light: #3b82f6;
+  --color-royal-blue-light: #60a5fa;
+
+  /* Cyan - 포인트 하이라이트 */
+  --color-cyan: #06b6d4;
+  --color-cyan-light: #22d3ee;
+  --color-cyan-dim: rgba(6, 182, 212, 0.15);
 
   /* Accent - Dark Green */
   --color-dark-green: #14532d;
   --color-dark-green-2: #166534;
   --color-green: #16a34a;
-  --color-green-light: #22c55e;
+  --color-green-light: #4ade80;
 
   /* Accent - Dark Red */
   --color-dark-red: #7f1d1d;
   --color-dark-red-2: #991b1b;
   --color-red: #dc2626;
-  --color-red-light: #ef4444;
+  --color-red-light: #f87171;
 
   /* Neutral */
   --color-white: #ffffff;
@@ -37,12 +42,12 @@
   --bg-primary: var(--color-dark-blue);
   --bg-secondary: var(--color-dark-blue-2);
   --bg-card: var(--color-dark-blue-3);
-  --bg-surface: #0f1e38;
+  --bg-surface: #0b1120;
   --text-primary: var(--color-white);
   --text-secondary: var(--color-gray-300);
   --text-muted: var(--color-gray-400);
-  --border-color: rgba(37, 99, 235, 0.25);
-  --border-color-hover: rgba(59, 130, 246, 0.5);
+  --border-color: rgba(96, 165, 250, 0.15);
+  --border-color-hover: rgba(34, 211, 238, 0.4);
 
   /* Typography */
   --font-sans: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -56,9 +61,10 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
-  --shadow-blue: 0 4px 24px rgba(37, 99, 235, 0.3);
-  --shadow-green: 0 4px 24px rgba(22, 163, 74, 0.3);
-  --shadow-red: 0 4px 24px rgba(220, 38, 38, 0.3);
+  --shadow-blue: 0 4px 24px rgba(37, 99, 235, 0.35);
+  --shadow-cyan: 0 4px 24px rgba(6, 182, 212, 0.3);
+  --shadow-green: 0 4px 24px rgba(74, 222, 128, 0.3);
+  --shadow-red: 0 4px 24px rgba(248, 113, 113, 0.3);
 
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -146,9 +152,9 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-royal-blue-light);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: var(--color-cyan-light);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
@@ -209,6 +215,22 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
 }
 
+.btn-cyan {
+  background: var(--color-cyan);
+  color: #06090f;
+  border-color: var(--color-cyan);
+  box-shadow: var(--shadow-cyan);
+  font-weight: 700;
+}
+
+.btn-cyan:hover {
+  background: var(--color-cyan-light);
+  border-color: var(--color-cyan-light);
+  color: #06090f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(6, 182, 212, 0.5);
+}
+
 .btn-green {
   background: var(--color-dark-green-2);
   color: var(--color-white);
@@ -264,7 +286,7 @@ img { max-width: 100%; display: block; }
 
 /* ===== Gradient Text ===== */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-royal-blue-light), var(--color-white));
+  background: linear-gradient(135deg, var(--color-cyan-light) 0%, var(--color-royal-blue-light) 50%, var(--color-white) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -280,10 +302,11 @@ img { max-width: 100%; display: block; }
 /* ===== Divider ===== */
 .divider {
   width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-royal-blue-2), var(--color-royal-blue-light));
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-royal-blue-light));
   border-radius: var(--radius-full);
   margin: 1rem auto;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
 }
 
 /* ===== Scrollbar ===== */
